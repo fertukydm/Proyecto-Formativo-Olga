@@ -26,15 +26,80 @@
         android:inputType="text"
         android:text="Nombre"
         tools:layout_editor_absoluteX="53dp"
-        tools:layout_editor_absoluteY="109dp" />
+        tools:layout_editor_absoluteY="91dp" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/txtApellidosHos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
         android:text="Apellidos"
-        tools:layout_editor_absoluteX="63dp"
-        tools:layout_editor_absoluteY="183dp" />
+        tools:layout_editor_absoluteX="53dp"
+        tools:layout_editor_absoluteY="155dp" />
+
+    <EditText
+        android:id="@+id/txtEdadHos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Edad"
+        tools:layout_editor_absoluteX="53dp"
+        tools:layout_editor_absoluteY="215dp" />
+
+    <EditText
+        android:id="@+id/txtEnfermedadHos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Enfermedad"
+        tools:layout_editor_absoluteX="53dp"
+        tools:layout_editor_absoluteY="275dp" />
+
+    <EditText
+        android:id="@+id/txtNumHabiHos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="N# de Habitación"
+        tools:layout_editor_absoluteX="53dp"
+        tools:layout_editor_absoluteY="331dp" />
+
+    <EditText
+        android:id="@+id/txtNumCamaHos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="N# de cama"
+        tools:layout_editor_absoluteX="47dp"
+        tools:layout_editor_absoluteY="387dp" />
+
+    <EditText
+        android:id="@+id/txtMedicamentosHos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Medicamentos"
+        tools:layout_editor_absoluteX="53dp"
+        tools:layout_editor_absoluteY="447dp" />
+
+    <Button
+        android:id="@+id/btnAgregarPaciente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Agregar Paciente"
+        tools:layout_editor_absoluteX="143dp"
+        tools:layout_editor_absoluteY="514dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvDatos"
+        android:layout_width="405dp"
+        android:layout_height="166dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="564dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
