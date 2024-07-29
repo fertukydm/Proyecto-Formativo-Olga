@@ -58,20 +58,18 @@ class MainActivity : AppCompatActivity() {
                 val numeroCama = resultSet.getInt("NumCama")
                 val medicamentos = resultSet.getInt("Medicamentos")
 
-                val Lista = ListaHospital()
+                val Lista = ListaHospital(uuid,)
 
                 Lista.add(Lista)
                 return ListaHospital
             }
-            return ListaHospital
+
     }
         CoroutineScope(Dispatchers.IO).launch {
             val ejecutarFuncion = obtenerDatos()
 
 
             withContext(Dispatchers.Main){
-                //Asigno el adaptador mi RecyclerView
-                //(Uno mi Adaptador con el RecyclerView)
                 val miAdaptador = adaptador(ejecutarFuncion)
                 rcvDatos.adapter = miAdaptador
 }
