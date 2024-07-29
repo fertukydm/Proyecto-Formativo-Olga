@@ -1,5 +1,6 @@
 package RecyclerViewHelpers
 
+import Modelo.Conexion
 import Modelo.ListaHospital
 import android.app.AlertDialog
 import android.view.LayoutInflater
@@ -28,7 +29,7 @@ class Adaptador(private var Datos: List<ListaHospital>): RecyclerView.Adapter<Vi
             //Dos pasos para eliminar de la base de datos
 
             //1- Crear un objeto de la clase conexion
-            val objConexion = ClaseConexion().cadenaConexion()
+            val objConexion = Conexion().cadenaConexion()
 
             //2- Creo una variable que contenga un PrepareStatement
             val deleteProducto = objConexion?.prepareStatement("delete tbProductos1 where nombreProducto = ?")!!
