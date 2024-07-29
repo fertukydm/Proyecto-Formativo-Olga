@@ -3,7 +3,7 @@ package Modelo
 import android.hardware.biometrics.BiometricManager.Strings
 
 class ListaHospital {
-    val uuid: String,
+    var uuid: String,
     val Nombre: String,
     val Apellido: String,
     val Edad: Int,

@@ -3,6 +3,7 @@ package olga.mendez.proyectoformativo_olga
 import Modelo.Conexion
 import Modelo.ListaHospital
 import android.os.Bundle
+import android.widget.Adapter
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
@@ -49,16 +50,16 @@ class MainActivity : AppCompatActivity() {
 
             while (resultSet.next()){
                 val uuid = resultSet.getString("uuid")
-                val Nombre = resultSet.getString("NombreHOS")
-                val Apellido = resultSet.getInt("ApellidoHOS")
-                val Edad = resultSet.getInt("EdadHOS")
-                val Enfermedad = resultSet.getInt("EnfermedadHOS")
-                val NumeroHabitacion = resultSet.getInt("NumHab")
-                val NumeroCama = resultSet.getInt("NumCama")
-                val Medicamentos = resultSet.getInt("Medicamentos")
+                val nombre = resultSet.getString("NombreHOS")
+                val apellido = resultSet.getInt("ApellidoHOS")
+                val edad = resultSet.getInt("EdadHOS")
+                val enfermedad = resultSet.getInt("EnfermedadHOS")
+                val numeroHabitacion = resultSet.getInt("NumHab")
+                val numeroCama = resultSet.getInt("NumCama")
+                val medicamentos = resultSet.getInt("Medicamentos")
 
-                val Lista = ListaHospital(uuid,Nombre, Apellido, Edad,Enfermedad, NumeroHabitacion, NumeroCama,Medicamentos)
-                ListaHospital.add(Lista)
+                val Lista = ListaHospital(uuid,nombre, apellido, edad,enfermedad, numeroHabitacion, numeroCama,medicamentos)
+                Lista.add(ListaHospital)
             }
             return ListaHospital
     }
@@ -69,6 +70,6 @@ class MainActivity : AppCompatActivity() {
             withContext(Dispatchers.Main){
                 //Asigno el adaptador mi RecyclerView
                 //(Uno mi Adaptador con el RecyclerView)
-                val miAdaptador = Adaptador(ejecutarFuncion)
+                val miAdaptador = miAdaptador(ejecutarFuncion)
                 rcvDatos.adapter = miAdaptador
 }
