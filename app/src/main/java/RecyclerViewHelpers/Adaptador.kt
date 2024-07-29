@@ -48,11 +48,11 @@ class Adaptador(private var Datos: List<ListaHospital>): RecyclerView.Adapter<Vi
     }
 
 
-    fun actualizarListadoDespuesDeEditar(uuid: String, nuevoNombre: String){
+    fun actualizarListadoDespuesDeEditar(uuid: String, Nombre:NuevoNombre: Int){
         //Obtener el UUID
         val identificador = Datos.indexOfFirst { it.uuid == uuid }
         //Asigno el nuevo nombre
-        Datos[identificador].nombreProducto = nuevoNombre
+        Datos[identificador].Nombre = NuevoNombre
         //Notifico que los cambios han sido realizados
         notifyItemChanged(identificador)
     }
@@ -63,7 +63,7 @@ class Adaptador(private var Datos: List<ListaHospital>): RecyclerView.Adapter<Vi
         //-Creo una corrutina
         GlobalScope.launch(Dispatchers.IO){
             //1- Creo un objeto de la clase conexion
-            val objConexion = ClaseConexion().cadenaConexion()
+            val objConexion = Conexion().cadenaConexion()
 
             //2- Creo una variable que contenga un PrepareStatement
             val updateProducto = objConexion?.prepareStatement("update tbProductos1 set nombreProducto = ? where uuid = ?")!!
@@ -78,20 +78,20 @@ class Adaptador(private var Datos: List<ListaHospital>): RecyclerView.Adapter<Vi
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val vista = LayoutInflater.from(parent.context).inflate(R.layout.activity_itam_card, parent, false)
-        return ViewHolder(vista)
+        return ViewHolder(view)
     }
 
     override fun getItemCount() = Datos.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val producto = Datos[position]
-        holder.textView.text = producto.nombreProducto
+        holder.TextView.text = producto.Nombre
 
         //Darle clic al icono de borrar
         holder.imgBorrar.setOnClickListener {
 
             //Crear una alerta de confirmacion para que se borre
-            val context = holder.textView.context
+            val context = holder.itemView.context
 
             val builder = AlertDialog.Builder(context)
             builder.setTitle("Eliminar")
@@ -100,7 +100,7 @@ class Adaptador(private var Datos: List<ListaHospital>): RecyclerView.Adapter<Vi
             //botones de mi alerta
             builder.setPositiveButton("Si"){
                     dialog, wich ->
-                eliminarRegistro(producto.nombreProducto, position)
+                    eliminarRegistro(producto.Nombre, position)
             }
 
             builder.setNegativeButton("No"){
