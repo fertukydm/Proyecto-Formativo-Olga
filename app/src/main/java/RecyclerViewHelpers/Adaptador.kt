@@ -33,7 +33,7 @@ class Adaptador(private var Datos: List<ListaHospital>): RecyclerView.Adapter<Vi
 
             //2- Creo una variable que contenga un PrepareStatement
             val deleteProducto = objConexion?.prepareStatement("delete tbProductos1 where nombreProducto = ?")!!
-            deleteProducto.setString(1, nombreProducto)
+            deleteProducto.setString(1, Nombre)
             deleteProducto.executeUpdate()
 
             val commit = objConexion.prepareStatement("commit")

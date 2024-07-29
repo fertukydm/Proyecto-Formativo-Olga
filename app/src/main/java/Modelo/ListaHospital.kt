@@ -1,12 +1,11 @@
 package Modelo
 
-import android.hardware.biometrics.BiometricManager.Strings
 
-class ListaHospital {
+data class ListaHospital(
     val uuid: String,
-    var Nombre: String,
-    var Apellido: String,
-    var Edad: Int,
+    var Nombre: Int,
+    var Apellido: Int,
+    var Edad: Number,
     var Enfermedad: String,
     var numHabitacion: Int,
     var numCama: Int,

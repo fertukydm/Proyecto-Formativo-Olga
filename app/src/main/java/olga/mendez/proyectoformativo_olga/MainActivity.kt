@@ -33,29 +33,29 @@ class MainActivity : AppCompatActivity() {
         val txtNombre= findViewById<EditText>(R.id.txtNombreHos)
         val txtApellidos= findViewById<EditText>(R.id.txtApellidosHos)
         val txtEdad = findViewById<EditText>(R.id.txtEdadHos)
-        val btnAgregar = findViewById<Button>(R.id.btnAgregarPaciente)
         val txtEnfermedad = findViewById<EditText>(R.id.txtEnfermedadHos)
         val txtHabitacion = findViewById<EditText>(R.id.txtNumHabiHos)
         val txtCama = findViewById<EditText>(R.id.txtNumCamaHos)
         val txtMedicamentos = findViewById<EditText>(R.id.txtMedicamentosHos)
+        val btnAgregar = findViewById<Button>(R.id.btnAgregarPaciente)
         val rcvDatos = findViewById<RecyclerView>(R.id.rcvDatos)
 
         rcvDatos.layoutManager = LinearLayoutManager(this)
 
         fun obtenerDatos(): List<ListaHospital> {
-            //1- Creo una objeto de la clase conexion
+
             val objConexion = Conexion().cadenaConexion()
 
             val statement = objConexion?.createStatement()
             val resultSet = statement?.executeQuery("SELECT * FROM HospitalBD")!!
 
-            val listadoProductos = mutableListOf<ListaHospital>()
+            val ListaHospital = mutableListOf<ListaHospital>()
 
             while (resultSet.next()){
-                val uuid = resultSet.getString("uuid")
-                val nombre = resultSet.getString("NombreHOS")
-                val apellido = resultSet.getInt("ApellidoHOS")
-                val edad = resultSet.getInt("EdadHOS")
+                var uuid = resultSet.getString("uuid")
+                val Nombre = resultSet.getString("NombreHOS")
+                var Apellido = resultSet.getInt("ApellidoHOS")
+                val Edad = resultSet.getInt("EdadHOS")
                 val enfermedad = resultSet.getInt("EnfermedadHOS")
                 val numeroHabitacion = resultSet.getInt("NumHab")
                 val numeroCama = resultSet.getInt("NumCama")
