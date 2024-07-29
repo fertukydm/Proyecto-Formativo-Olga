@@ -58,8 +58,10 @@ class MainActivity : AppCompatActivity() {
                 val numeroCama = resultSet.getInt("NumCama")
                 val medicamentos = resultSet.getInt("Medicamentos")
 
-                val Lista = ListaHospital(uuid,nombre, apellido, edad,enfermedad, numeroHabitacion, numeroCama,medicamentos)
-                Lista.add(ListaHospital)
+                val Lista = ListaHospital()
+
+                Lista.add(Lista)
+                return ListaHospital
             }
             return ListaHospital
     }
@@ -70,6 +72,6 @@ class MainActivity : AppCompatActivity() {
             withContext(Dispatchers.Main){
                 //Asigno el adaptador mi RecyclerView
                 //(Uno mi Adaptador con el RecyclerView)
-                val miAdaptador = miAdaptador(ejecutarFuncion)
+                val miAdaptador = adaptador(ejecutarFuncion)
                 rcvDatos.adapter = miAdaptador
 }
